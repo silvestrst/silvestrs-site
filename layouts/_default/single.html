@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ if or .Params.status .Params.tech .Params.repo }}
+    <dl class="project-meta">
+      {{ with .Params.status }}<div><dt>Status</dt><dd><span class="badge">{{ . }}</span></dd></div>{{ end }}
+      {{ with .Params.tech }}<div><dt>Tech</dt><dd>{{ delimit . ", " }}</dd></div>{{ end }}
+      {{ with .Params.repo }}<div><dt>Source</dt><dd><a href="{{ . }}">{{ . }}</a></dd></div>{{ end }}
+    </dl>
+    {{ end }}
+  </header>
+  <div class="page-body">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

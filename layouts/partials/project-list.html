@@ -1,0 +1,17 @@
+{{- /* Expects a collection of project pages. */ -}}
+<ul class="project-list">
+  {{ range . }}
+  <li class="project">
+    <h3 class="project-title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ with .Params.status }}<span class="badge">{{ . }}</span>{{ end }}
+    </h3>
+    {{ with .Description }}<p class="project-summary">{{ . }}</p>{{ end }}
+    {{ with .Params.tech }}
+    <ul class="tags" aria-label="Technologies">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{ end }}
+  </li>
+  {{ end }}
+</ul>

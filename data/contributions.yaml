@@ -1,0 +1,35 @@
+# Open-source contributions shown on the home page.
+# Each entry: project, org, period, url (where to see all the work), summary, highlights[].
+- project: OpenTitan
+  org: lowRISC
+  period: 2019 – 2022
+  url: https://github.com/lowRISC/opentitan/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
+  summary: >-
+    106 merged pull requests to the open-source silicon root of trust: device interface
+    libraries for UART, PLIC, AES, the always-on timer, Reset Manager, Pinmux and SRAM
+    Controller; Mask ROM and ROM_EXT secure-boot code; a Rust ROM_EXT image signer; a
+    RISC-V PMP library; and chip-level SRAM scrambling and HMAC tests.
+  highlights:
+    - title: "Library for manipulating volatile MMIO memory (#1187)"
+      url: https://github.com/lowRISC/opentitan/pull/1187
+    - title: "RISC-V PMP configuration library (#3224)"
+      url: https://github.com/lowRISC/opentitan/pull/3224
+    - title: "Mask ROM and ROM_EXT on-device secure-boot testing (#5516)"
+      url: https://github.com/lowRISC/opentitan/pull/5516
+    - title: "ROM_EXT image signer tooling in Rust (#4350)"
+      url: https://github.com/lowRISC/opentitan/pull/4350
+    - title: "AES device interface library (#2413)"
+      url: https://github.com/lowRISC/opentitan/pull/2413
+
+- project: Tock OS
+  org: tock
+  period: 2020
+  url: https://github.com/tock/tock/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
+  summary: >-
+    OpenTitan board support in the Tock embedded operating system: device-specific build
+    parameters and the EarlGrey chip rename.
+  highlights:
+    - title: "Build OpenTitan with target-device-specific parameters (#1741)"
+      url: https://github.com/tock/tock/pull/1741
+    - title: "Rename the Ibex chip to EarlGrey (#1997)"
+      url: https://github.com/tock/tock/pull/1997

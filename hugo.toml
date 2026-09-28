@@ -1,0 +1,36 @@
+baseURL = "https://silvestrs.site/"
+languageCode = "en-gb"
+title = "Silvestrs Timofejevs"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss"]
+
+[params]
+  name = "Silvestrs Timofejevs"
+  tagline = "Senior Software Engineer · Backend · Blockchain · Embedded Systems · Security"
+  description = "Silvestrs Timofejevs — senior software engineer working in Rust and C across digital-asset custody, embedded firmware, Linux graphics and safety-critical systems."
+  email = "silvestrs.timofejevs@gmail.com"
+  github = "silvestrst"
+  location = "Hertfordshire, UK"
+
+[[menus.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 1
+
+[[menus.main]]
+  name = "Experience"
+  pageRef = "/experience"
+  weight = 2
+
+[[menus.main]]
+  name = "Projects"
+  pageRef = "/projects"
+  weight = 3
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = false

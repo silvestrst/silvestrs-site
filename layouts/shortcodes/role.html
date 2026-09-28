@@ -1,0 +1,2 @@
+{{- /* Job title(s) and dates under a company heading. One line per role. */ -}}
+<p class="role">{{ range $i, $line := split (trim .Inner "\n ") "\n" }}{{ if $i }}<br>{{ end }}{{ trim $line " " }}{{ end }}</p>

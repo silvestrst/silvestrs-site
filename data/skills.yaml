@@ -1,0 +1,12 @@
+- name: Languages
+  items: "Rust and C; working knowledge of Go, C++, RISC-V assembly, Python and TypeScript."
+- name: Backend
+  items: "Rust/Actix Web, Tokio, REST/gRPC, WebSockets, MongoDB, JWT-based session management and CI."
+- name: Security
+  items: "TEE architecture and trust-boundary design, secure boot, applied cryptography, TOTP authentication, ACL/RBAC and transaction-policy enforcement; familiarity with MPC-based signing."
+- name: Blockchain
+  items: "EVM, Bitcoin, Cosmos SDK, Solana, Algorand, MultiversX and Canton Network; wallets, transaction lifecycles, staking, fee modelling, signing and broadcast semantics."
+- name: Systems
+  items: "Embedded and real-time software, RISC-V, bootloaders, Linux kernel and device drivers, safety-related systems and Tock OS; familiarity with FreeRTOS."
+- name: AI-assisted engineering
+  items: "Design, codebase exploration, implementation, testing, debugging and code review."

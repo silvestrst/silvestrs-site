@@ -630,19 +630,55 @@ blockquote p:last-child {
   padding: 0.05rem 0.5rem;
 }
 
-.highlights {
-  margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.88rem;
+/* External links in open-source cards: title and stat chip */
+.ext-arrow {
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.8em;
+  transition: transform 0.15s ease;
 }
 
-.highlights li {
-  margin-bottom: 0.2rem;
+.card-title a.ext {
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.25em;
 }
 
-.highlights li::marker {
-  content: "› ";
-  color: var(--accent-2);
+.card-title a.ext .ext-arrow {
+  color: var(--accent);
+}
+
+.card-title a.ext:hover {
+  color: var(--accent);
+  text-decoration-style: solid;
+  text-decoration-color: currentColor;
+}
+
+.card-title a.ext:hover .ext-arrow,
+.pill-link:hover .ext-arrow,
+.pill-link:focus-visible .ext-arrow {
+  transform: translate(2px, -2px);
+}
+
+.pill-link {
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--fg) 25%, transparent);
+  transition: transform 0.12s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.pill-link .ext-arrow {
+  margin-left: 0.35em;
+}
+
+.pill-link:hover,
+.pill-link:focus-visible {
+  color: var(--on-accent);
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent-2), var(--glow);
+  text-shadow: none;
 }
 
 /* ==========================================================================

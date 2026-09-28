@@ -18,22 +18,22 @@
 
 <section id="open-source" class="section">
   <h2>Open source</h2>
-  <div class="card-list">
-    {{ range site.Data.contributions }}
-    <article class="card card-oss">
+  <ul class="card-list">
+    {{ range $c := site.Data.contributions }}
+    <li class="card card-oss">
       <header class="card-head">
-        <h3 class="card-title"><a href="{{ .url }}">{{ .project }}</a></h3>
-        {{ with .stat }}<span class="pill pill-accent">{{ . }}</span>{{ end }}
+        <h3 class="card-title"><a class="ext" href="{{ .url }}" rel="noopener">{{ .project }}<span class="ext-arrow" aria-hidden="true">↗</span></a></h3>
+        {{ with .stat }}<a class="pill pill-accent pill-link" href="{{ $c.stat_url }}" rel="noopener"{{ with $c.stat_label }} aria-label="{{ . }}"{{ end }}>{{ . }}<span class="ext-arrow" aria-hidden="true">↗</span></a>{{ end }}
       </header>
       <p class="card-meta">{{ .org }} · {{ .period }}</p>
       <p>{{ .summary }}</p>
-      {{ with .highlights }}
-      <ul class="highlights">
-        {{ range . }}<li><a href="{{ .url }}">{{ .title }}</a></li>{{ end }}
+      {{ with .tech }}
+      <ul class="tags" aria-label="Technologies">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
       </ul>
       {{ end }}
-    </article>
+    </li>
     {{ end }}
-  </div>
+  </ul>
 </section>
 {{ end }}

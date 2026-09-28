@@ -23,7 +23,7 @@ Open http://localhost:1313/. The site rebuilds on every file change.
 | Core expertise groups | `data/skills.yaml` |
 | Experience page | `content/experience.md` |
 | A personal project | one file per project in `content/projects/` |
-| Open-source contributions | `data/contributions.yaml` |
+| Open-source contributions (name, website, stat chip and its link, summary, tech tags) | `data/contributions.yaml` |
 | Name, tagline, email, GitHub handle | `[params]` in `hugo.toml` |
 | Avatar photo | `assets/images/avatar.jpg` (see below) |
 | Colours and themes | `static/css/style.css` and the list in `static/js/theme.js` |

@@ -1,37 +1,71 @@
-# Open-source contributions shown on the home page.
-# Fields: project, org, period, stat (short chip), url (all the work), summary, highlights[].
+# Open-source contributions shown on the home page, in display order.
+# Fields:
+#   project   name shown as the card title
+#   url       project website, or the GitHub repo when there is no website
+#   org       who runs the project
+#   period    when I contributed
+#   stat      text of the chip, e.g. "106 merged PRs"
+#   stat_url  where the chip links: my merged PRs / commit / PR on GitHub
+#   stat_label  accessible description of the chip link
+#   summary   one or two sentences about what I did
+#   tech      tags shown under the summary
 - project: OpenTitan
+  url: https://www.opentitan.org
   org: lowRISC
   period: 2019 – 2022
   stat: 106 merged PRs
-  url: https://github.com/lowRISC/opentitan/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
+  stat_url: https://github.com/lowRISC/opentitan/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
+  stat_label: 106 merged pull requests to OpenTitan on GitHub
   summary: >-
-    The open-source silicon root of trust. Device interface libraries for UART, PLIC, AES,
-    the always-on timer, Reset Manager, Pinmux and SRAM Controller; Mask ROM and ROM_EXT
-    secure-boot code; a Rust ROM_EXT image signer; a RISC-V PMP library; and chip-level
-    SRAM scrambling and HMAC tests.
-  highlights:
-    - title: "Library for manipulating volatile MMIO memory (#1187)"
-      url: https://github.com/lowRISC/opentitan/pull/1187
-    - title: "RISC-V PMP configuration library (#3224)"
-      url: https://github.com/lowRISC/opentitan/pull/3224
-    - title: "Mask ROM and ROM_EXT on-device secure-boot testing (#5516)"
-      url: https://github.com/lowRISC/opentitan/pull/5516
-    - title: "ROM_EXT image signer tooling in Rust (#4350)"
-      url: https://github.com/lowRISC/opentitan/pull/4350
-    - title: "AES device interface library (#2413)"
-      url: https://github.com/lowRISC/opentitan/pull/2413
+    The open-source silicon root of trust. Device drivers for UART, PLIC, AES, the always-on
+    timer, Reset Manager, Pinmux and SRAM Controller; Mask ROM and ROM_EXT secure-boot code;
+    a Rust ROM_EXT image signer; a RISC-V PMP library; and chip-level SRAM and HMAC tests.
+  tech: ["C", "Rust", "RISC-V"]
 
 - project: Tock OS
+  url: https://www.tockos.org
   org: tock
   period: 2020
   stat: 2 merged PRs
-  url: https://github.com/tock/tock/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
+  stat_url: https://github.com/tock/tock/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
+  stat_label: 2 merged pull requests to Tock OS on GitHub
   summary: >-
     A secure embedded operating system for microcontrollers. OpenTitan board support:
-    device-specific build parameters and the EarlGrey chip rename.
-  highlights:
-    - title: "Build OpenTitan with target-device-specific parameters (#1741)"
-      url: https://github.com/tock/tock/pull/1741
-    - title: "Rename the Ibex chip to EarlGrey (#1997)"
-      url: https://github.com/tock/tock/pull/1997
+    target-specific build parameters and the EarlGrey chip rename.
+  tech: ["Rust", "embedded"]
+
+- project: Mundane
+  url: https://github.com/google/mundane
+  org: Google
+  period: 2021
+  stat: 1 commit
+  stat_url: https://github.com/google/mundane/commit/f03652687ab69a7db094bace501fb738053899db
+  stat_label: My commit to Mundane on GitHub
+  summary: >-
+    A Rust cryptography library backed by BoringSSL. Added getters for the RSA public exponent
+    and modulus, needed to embed public keys in OpenTitan's signed boot images.
+  tech: ["Rust", "cryptography"]
+
+- project: Bitcoin Dev Kit
+  url: https://bitcoindevkit.org
+  org: bitcoindevkit
+  period: 2023
+  stat: 1 merged PR
+  stat_url: https://github.com/bitcoindevkit/bdk/pulls?q=is%3Apr+author%3Asilvestrst-crypto+is%3Amerged
+  stat_label: 1 merged pull request to Bitcoin Dev Kit on GitHub
+  summary: >-
+    A descriptor-based Bitcoin wallet library in Rust. Made the database tests check the
+    results of their operations instead of silently ignoring them.
+  tech: ["Rust", "SQLite"]
+
+- project: WalletConnect Rust SDK
+  url: https://github.com/reown-com/reown-rust
+  org: WalletConnect / Reown
+  period: 2023
+  stat: Open PR
+  stat_url: https://github.com/reown-com/reown-rust/pull/48
+  stat_label: My open pull request to the WalletConnect Rust SDK on GitHub
+  summary: >-
+    Proposed a Sign API framework for the SDK: serialisable payload types, payload encryption
+    and decryption, and an example client that demonstrates pairing and session creation.
+  tech: ["Rust", "cryptography"]

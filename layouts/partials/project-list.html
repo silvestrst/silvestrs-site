@@ -1,12 +1,12 @@
-{{- /* Expects a collection of project pages. */ -}}
-<ul class="project-list">
+{{- /* Expects a collection of project pages. Whole card is clickable. */ -}}
+<ul class="card-list project-list">
   {{ range . }}
-  <li class="project">
-    <h3 class="project-title">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{ with .Params.status }}<span class="badge">{{ . }}</span>{{ end }}
-    </h3>
-    {{ with .Description }}<p class="project-summary">{{ . }}</p>{{ end }}
+  <li class="card card-project">
+    <header class="card-head">
+      <h3 class="card-title"><a class="stretched" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ with .Params.status }}<span class="pill">{{ . }}</span>{{ end }}
+    </header>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
     {{ with .Params.tech }}
     <ul class="tags" aria-label="Technologies">
       {{ range . }}<li>{{ . }}</li>{{ end }}

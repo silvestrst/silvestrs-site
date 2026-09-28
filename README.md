@@ -25,6 +25,14 @@ Open http://localhost:1313/. The site rebuilds on every file change.
 | A personal project | one file per project in `content/projects/` |
 | Open-source contributions | `data/contributions.yaml` |
 | Name, tagline, email, GitHub handle | `[params]` in `hugo.toml` |
+| Avatar photo | `assets/images/avatar.jpg` (see below) |
+| Colours and themes | `static/css/style.css` and the list in `static/js/theme.js` |
+
+### Avatar
+
+Save a photo as `assets/images/avatar.jpg` (`.jpeg`, `.png` and `.webp` also work). Hugo crops it
+to a square automatically and uses it in the header, next to the About text, and as the favicon.
+Without a photo, a pixel-style "ST" monogram is shown in the theme colours.
 
 ### Add a project
 

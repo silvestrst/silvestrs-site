@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  <section class="card expertise" aria-labelledby="expertise-title">
+    <h2 id="expertise-title">Core expertise</h2>
+    <dl class="skills">
+      {{ range site.Data.skills }}
+      <div class="skill">
+        <dt>{{ .name }}</dt>
+        <dd>{{ .items }}</dd>
+      </div>
+      {{ end }}
+    </dl>
+  </section>
+
+  <div class="page-body timeline">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

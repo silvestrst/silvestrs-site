@@ -1,5 +1,6 @@
 ---
 title: "Experience"
+layout: "experience"
 description: "Roles, responsibilities and highlights from over ten years of software engineering across digital-asset custody, embedded firmware, Linux graphics and railway safety."
 ---
 

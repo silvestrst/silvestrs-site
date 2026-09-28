@@ -1,15 +1,16 @@
 <header class="site-header">
-  <div class="identity">
-    {{ if .IsHome }}
-    <h1 class="site-name">{{ site.Params.name }}</h1>
-    {{ else }}
-    <p class="site-name"><a href="{{ site.Home.RelPermalink }}">{{ site.Params.name }}</a></p>
-    {{ end }}
-    <p class="tagline">{{ site.Params.tagline }}</p>
+  <div class="wrap header-inner">
+    <a class="identity" href="{{ site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>
+      {{ partial "avatar.html" (dict "class" "avatar-sm" "size" 128) }}
+      <span class="identity-text">
+        {{ if .IsHome }}<h1 class="site-name">{{ site.Params.name }}</h1>{{ else }}<span class="site-name">{{ site.Params.name }}</span>{{ end }}
+        <span class="tagline">{{ site.Params.tagline }}</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {{ range site.Menus.main }}
+      <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
   </div>
-  <nav class="site-nav" aria-label="Main">
-    {{ range site.Menus.main }}
-    <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
-    {{ end }}
-  </nav>
 </header>

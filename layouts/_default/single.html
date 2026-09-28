@@ -5,8 +5,8 @@
     {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
     {{ if or .Params.status .Params.tech .Params.repo }}
     <dl class="project-meta">
-      {{ with .Params.status }}<div><dt>Status</dt><dd><span class="badge">{{ . }}</span></dd></div>{{ end }}
-      {{ with .Params.tech }}<div><dt>Tech</dt><dd>{{ delimit . ", " }}</dd></div>{{ end }}
+      {{ with .Params.status }}<div><dt>Status</dt><dd><span class="pill">{{ . }}</span></dd></div>{{ end }}
+      {{ with .Params.tech }}<div><dt>Tech</dt><dd><ul class="tags">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></dd></div>{{ end }}
       {{ with .Params.repo }}<div><dt>Source</dt><dd><a href="{{ . }}">{{ . }}</a></dd></div>{{ end }}
     </dl>
     {{ end }}

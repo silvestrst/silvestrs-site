@@ -6,15 +6,26 @@
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
   <meta name="author" content="{{ site.Params.name }}">
   <link rel="canonical" href="{{ .Permalink }}">
+  {{- with partial "avatar-image.html" . }}
+  {{- $fav := .Fill "64x64 Center png" }}
+  <link rel="icon" href="{{ $fav.RelPermalink }}" type="image/png">
+  {{- else }}
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+  {{- end }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
   <script>
-    /* Apply the saved theme before first paint to avoid a flash of the wrong palette. */
+    /* Apply the saved theme before first paint so there is no flash of the wrong palette. */
     (function () {
+      var d = document.documentElement, t = "kanagawa";
+      d.classList.add("js");
       try {
-        var t = localStorage.getItem("theme");
-        if (t && t !== "system") document.documentElement.setAttribute("data-theme", t);
+        var s = localStorage.getItem("theme");
+        if (s && /^(kanagawa|catppuccin|gruvbox|rose-pine|tokyo-night|nord|amber|paper)$/.test(s)) t = s;
       } catch (e) {}
+      d.setAttribute("data-theme", t);
     })();
   </script>
 </head>

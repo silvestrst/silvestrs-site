@@ -1,0 +1,6 @@
+{{- /* Returns the avatar image resource, or false when none is present. */ -}}
+{{- $img := false -}}
+{{- range slice "images/avatar.jpg" "images/avatar.jpeg" "images/avatar.png" "images/avatar.webp" -}}
+  {{- if not $img -}}{{- with resources.Get . -}}{{- $img = . -}}{{- end -}}{{- end -}}
+{{- end -}}
+{{- return $img -}}

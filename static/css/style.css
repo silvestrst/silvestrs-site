@@ -286,7 +286,8 @@ a:hover {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--font-heading);
   color: var(--heading);
   line-height: 1.25;
@@ -586,10 +587,54 @@ blockquote p:last-child {
   border-radius: var(--radius);
 }
 
-.card-meta {
-  color: var(--muted);
-  font-size: 0.82rem;
-  margin: -0.2rem 0 0.6rem;
+/* Open source: "Other contributions" heading and the single card listing them */
+.subsection-title {
+  margin: 2rem 0 0.75rem;
+  font-size: 1rem;
+}
+
+.card-oss-list {
+  padding: 0.85rem 1.15rem;
+}
+
+.oss-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.oss-row {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.oss-row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.oss-row:last-child {
+  padding-bottom: 0;
+}
+
+.oss-row .card-head {
+  margin-bottom: 0.2rem;
+}
+
+.oss-row .card-title {
+  font-size: 0.98rem;
+}
+
+.oss-row .pill {
+  font-size: 0.62rem;
+}
+
+.oss-row .tags {
+  margin-top: 0.15rem;
+}
+
+.oss-row .tags li {
+  font-size: 0.7rem;
 }
 
 .pill {

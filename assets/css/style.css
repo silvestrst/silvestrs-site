@@ -573,7 +573,14 @@ blockquote p:last-child {
   }
 
   .project-list {
-    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Odd number of cards (more than one): centre the last one under the pair. */
+  .project-list > li:last-child:nth-child(odd):not(:first-child) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 0.9rem) / 2);
   }
 
   .oss-list {
@@ -591,6 +598,13 @@ blockquote p:last-child {
 
   .oss-row:nth-last-child(2):nth-child(odd) {
     padding-bottom: 0;
+  }
+
+  /* Odd number of rows (more than one): the last row spans the card so its
+     divider runs full width, and its content is centred at one column's width. */
+  .oss-row:last-child:nth-child(odd):not(:first-child) {
+    grid-column: 1 / -1;
+    padding-inline: calc(25% + 0.5rem);
   }
 }
 

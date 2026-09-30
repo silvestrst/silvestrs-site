@@ -10,6 +10,6 @@
     </main>
   </div>
   {{ partial "footer.html" . }}
-  <script src="{{ "js/theme.js" | relURL }}" defer></script>
+  {{ with resources.Get "js/theme.js" | fingerprint }}<script src="{{ .RelPermalink }}" defer></script>{{ end }}
 </body>
 </html>

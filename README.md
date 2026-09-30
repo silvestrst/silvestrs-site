@@ -1,7 +1,7 @@
 # silvestrs-site
 
 Source for my personal website, built with [Hugo](https://gohugo.io/) and hosted on GitHub Pages.
-The theme is a small custom one that lives in this repository (`layouts/` and `static/`), so there
+The theme is a small custom one that lives in this repository (`layouts/` and `assets/`), so there
 are no submodules or external dependencies.
 
 ## Run locally
@@ -26,7 +26,7 @@ Open http://localhost:1313/. The site rebuilds on every file change.
 | Open-source contributions (name, website, tier, stat chip and its link, summary for major ones, tech tags) | `data/contributions.yaml` |
 | Name, tagline, email, GitHub handle | `[params]` in `hugo.toml` |
 | Avatar photo | `assets/images/avatar.jpg` (see below) |
-| Colours and themes | `static/css/style.css` and the list in `static/js/theme.js` |
+| Colours and themes | `assets/css/style.css` and the list in `assets/js/theme.js` |
 
 ### Avatar
 

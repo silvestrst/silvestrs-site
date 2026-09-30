@@ -12,5 +12,8 @@
       <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
       {{ end }}
     </nav>
+    <div class="rail-tools">
+      {{ partial "tools.html" . }}
+    </div>
   </div>
 </header>

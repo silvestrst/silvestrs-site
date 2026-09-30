@@ -19,7 +19,7 @@
     The open-source silicon root of trust. Device drivers for UART, PLIC, AES, the always-on
     timer, Reset Manager, Pinmux and SRAM Controller; Mask ROM and ROM_EXT secure-boot code;
     a Rust ROM_EXT image signer; a RISC-V PMP library; and chip-level SRAM and HMAC tests.
-  tech: ["C", "Rust", "RISC-V"]
+  tech: ["C", "Rust", "RISC-V", "embedded", "security", "Root of Trust"]
 
 - project: Tock OS
   url: https://www.tockos.org
@@ -27,7 +27,7 @@
   stat: 2 merged PRs
   stat_url: https://github.com/tock/tock/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
   stat_label: 2 merged pull requests to Tock OS on GitHub
-  tech: ["Rust", "embedded"]
+  tech: ["Rust", "embedded", "RTOS"]
 
 - project: Mundane
   url: https://github.com/google/mundane
@@ -43,7 +43,7 @@
   stat: 1 merged PR
   stat_url: https://github.com/bitcoindevkit/bdk/pulls?q=is%3Apr+author%3Asilvestrst-crypto+is%3Amerged
   stat_label: 1 merged pull request to Bitcoin Dev Kit on GitHub
-  tech: ["Rust", "SQLite"]
+  tech: ["Rust", "Blockchain", "Btc"]
 
 - project: WalletConnect Rust SDK
   url: https://github.com/reown-com/reown-rust
@@ -51,4 +51,4 @@
   stat: Open PR
   stat_url: https://github.com/reown-com/reown-rust/pull/48
   stat_label: My open pull request to the WalletConnect Rust SDK on GitHub
-  tech: ["Rust", "cryptography"]
+  tech: ["Rust", "Wallet Connect V2", "Blockchain", "dApp"]

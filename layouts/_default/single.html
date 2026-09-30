@@ -1,6 +1,7 @@
 {{ define "main" }}
 <article class="page">
   <header class="page-header">
+    {{ if eq .Section "projects" }}<a class="back-link" href="{{ site.Home.RelPermalink }}#projects">&larr; All projects</a>{{ end }}
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
     {{ if or .Params.status .Params.tech .Params.repo }}

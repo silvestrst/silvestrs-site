@@ -19,13 +19,12 @@
 <section id="open-source" class="section">
   <h2>Open source</h2>
   <ul class="card-list">
-    {{ range $c := site.Data.contributions }}
+    {{ range $c := where site.Data.contributions "tier" "major" }}
     <li class="card card-oss">
       <header class="card-head">
         <h3 class="card-title"><a class="ext" href="{{ .url }}" rel="noopener">{{ .project }}<span class="ext-arrow" aria-hidden="true">↗</span></a></h3>
         {{ with .stat }}<a class="pill pill-accent pill-link" href="{{ $c.stat_url }}" rel="noopener"{{ with $c.stat_label }} aria-label="{{ . }}"{{ end }}>{{ . }}<span class="ext-arrow" aria-hidden="true">↗</span></a>{{ end }}
       </header>
-      <p class="card-meta">{{ .org }} · {{ .period }}</p>
       <p>{{ .summary }}</p>
       {{ with .tech }}
       <ul class="tags" aria-label="Technologies">
@@ -35,5 +34,26 @@
     </li>
     {{ end }}
   </ul>
+
+  {{ with where site.Data.contributions "tier" "minor" }}
+  <h3 class="subsection-title">Other contributions</h3>
+  <div class="card card-oss card-oss-list">
+    <ul class="oss-list">
+      {{ range $c := . }}
+      <li class="oss-row">
+        <div class="card-head">
+          <h4 class="card-title"><a class="ext" href="{{ .url }}" rel="noopener">{{ .project }}<span class="ext-arrow" aria-hidden="true">↗</span></a></h4>
+          {{ with .stat }}<a class="pill pill-accent pill-link" href="{{ $c.stat_url }}" rel="noopener"{{ with $c.stat_label }} aria-label="{{ . }}"{{ end }}>{{ . }}<span class="ext-arrow" aria-hidden="true">↗</span></a>{{ end }}
+        </div>
+        {{ with .tech }}
+        <ul class="tags" aria-label="Technologies">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
 </section>
 {{ end }}

@@ -1,12 +1,15 @@
 {{- /* Avatar: uses assets/images/avatar.{jpg,jpeg,png,webp} if present,
        otherwise a pixel-art "ST" monogram that follows the theme colours.
-       Params: dict "class" "<css class>" "size" <px of rendered image> */ -}}
-{{- $img := partial "avatar-image.html" . -}}
+       Params: dict "class" "<css class>" "size" <px of rendered image>
+               "variant" "photo" (default) or "pixel" (avatar-pixel.*, else the photo) */ -}}
+{{- $img := partial "avatar-image.html" (.variant | default "photo") -}}
 {{- $class := .class | default "" -}}
 {{- if $img -}}
   {{- $size := .size | default 384 -}}
-  {{- $p := $img.Fill (printf "%dx%d Center q85" $size $size) -}}
-  <img class="avatar {{ $class }}" src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt="Photo of {{ site.Params.name }}">
+  {{- /* WebP keeps photos small whatever format the source is. */ -}}
+  {{- $p := $img.Fill (printf "%dx%d Center Lanczos webp q85" $size $size) -}}
+  {{- $alt := cond (strings.Contains $img.Name "avatar-pixel") "Pixel-art portrait" "Photo" -}}
+  <img class="avatar {{ $class }}" src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt="{{ $alt }} of {{ site.Params.name }}">
 {{- else -}}
   <svg class="avatar avatar-placeholder {{ $class }}" viewBox="0 0 16 16" role="img" aria-label="{{ site.Params.name }} monogram" shape-rendering="crispEdges"><path fill="currentColor" d="M3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM2 5h1v1h-1zM2 6h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 8h1v1h-1zM6 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM11 5h1v1h-1zM11 6h1v1h-1zM11 7h1v1h-1zM11 8h1v1h-1zM11 9h1v1h-1zM11 10h1v1h-1z"/></svg>
 {{- end -}}

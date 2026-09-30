@@ -1,6 +1,12 @@
-{{- /* Returns the avatar image resource, or false when none is present. */ -}}
+{{- /* Returns the avatar image resource, or false when none is present.
+       Context: "photo" (assets/images/avatar.*) or "pixel" (assets/images/avatar-pixel.*,
+       falling back to the photo). */ -}}
+{{- $names := slice "avatar" -}}
+{{- if eq . "pixel" }}{{ $names = slice "avatar-pixel" "avatar" }}{{ end -}}
 {{- $img := false -}}
-{{- range slice "images/avatar.jpg" "images/avatar.jpeg" "images/avatar.png" "images/avatar.webp" -}}
-  {{- if not $img -}}{{- with resources.Get . -}}{{- $img = . -}}{{- end -}}{{- end -}}
+{{- range $name := $names -}}
+  {{- range $ext := slice "jpg" "jpeg" "png" "webp" -}}
+    {{- if not $img -}}{{- with resources.Get (printf "images/%s.%s" $name $ext) -}}{{- $img = . -}}{{- end -}}{{- end -}}
+  {{- end -}}
 {{- end -}}
 {{- return $img -}}

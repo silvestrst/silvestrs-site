@@ -6,9 +6,12 @@
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
   <meta name="author" content="{{ site.Params.name }}">
   <link rel="canonical" href="{{ .Permalink }}">
-  {{- with partial "avatar-image.html" . }}
-  {{- $fav := .Fill "64x64 Center png" }}
+  {{- with partial "avatar-image.html" "pixel" }}
+  {{- /* Tab and home-screen icons: the whole portrait, squared. */}}
+  {{- $fav := .Fill "64x64 Center Lanczos png" }}
+  {{- $touch := .Fill "180x180 Center Lanczos png" }}
   <link rel="icon" href="{{ $fav.RelPermalink }}" type="image/png">
+  <link rel="apple-touch-icon" href="{{ $touch.RelPermalink }}">
   {{- else }}
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
   {{- end }}

@@ -25,14 +25,16 @@ Open http://localhost:1313/. The site rebuilds on every file change.
 | A personal project | one file per project in `content/projects/` |
 | Open-source contributions (name, website, tier, stat chip and its link, summary for major ones, tech tags) | `data/contributions.yaml` |
 | Name, tagline, email, GitHub handle | `[params]` in `hugo.toml` |
-| Avatar photo | `assets/images/avatar.jpg` (see below) |
+| Avatar photo and pixel-art portrait | `assets/images/avatar.png` and `assets/images/avatar-pixel.png` (see below) |
 | Colours and themes | `assets/css/style.css` and the list in `assets/js/theme.js` |
 
 ### Avatar
 
-Save a photo as `assets/images/avatar.jpg` (`.jpeg`, `.png` and `.webp` also work). Hugo crops it
-to a square automatically and uses it in the header, next to the About text, and as the favicon.
-Without a photo, a pixel-style "ST" monogram is shown in the theme colours.
+Save a photo as `assets/images/avatar.png` (`.jpg`, `.jpeg` and `.webp` also work). Hugo crops it
+to a square automatically and shows it next to the About text.
+
+An optional pixel-art portrait, `assets/images/avatar-pixel.png`, is used in the sidebar and as the
+browser-tab and home-screen icon. Without it those places use the photo. Without either image, a pixel-style "ST" monogram is shown in the theme colours.
 
 ### Add a project
 

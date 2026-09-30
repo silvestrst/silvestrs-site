@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="identity" href="{{ site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>
-      {{ partial "avatar.html" (dict "class" "avatar-sm" "size" 128) }}
+      {{ partial "avatar.html" (dict "class" "avatar-sm" "size" 160 "variant" "pixel") }}
       <span class="identity-text">
         {{ if .IsHome }}<h1 class="site-name">{{ site.Params.name }}</h1>{{ else }}<span class="site-name">{{ site.Params.name }}</span>{{ end }}
         <span class="tagline">{{ site.Params.tagline }}</span>

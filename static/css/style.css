@@ -438,6 +438,67 @@ blockquote p:last-child {
 }
 
 /* ==========================================================================
+   Desktop shell: the header becomes a sticky left rail beside the content
+   ========================================================================== */
+
+@media (min-width: 64rem) {
+  .site-shell {
+    display: grid;
+    grid-template-columns: 17rem minmax(0, calc(var(--measure) + 2 * var(--gutter)));
+    justify-content: center;
+    align-items: start;
+    column-gap: 2rem;
+    padding-inline: var(--gutter);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 1.25rem;
+    margin: 1.25rem 0 0;
+    max-height: calc(100vh - 2.5rem);
+    overflow-y: auto;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+    border-radius: 12px;
+    box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--fg) 8%, transparent);
+  }
+
+  .header-inner {
+    max-width: none;
+    margin: 0;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .identity {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .avatar-sm {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .site-name {
+    font-size: 1.3rem;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .site-nav a {
+    padding: 0.35rem 0.9rem;
+  }
+
+  .site-main {
+    padding-top: 1.25rem;
+  }
+}
+
+/* ==========================================================================
    Avatar
    ========================================================================== */
 

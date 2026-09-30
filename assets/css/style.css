@@ -447,13 +447,25 @@ blockquote p:last-child {
 }
 
 @media (min-width: 64rem) {
+  :root {
+    --rail-w: 17rem;
+    --rail-gap: 2rem;
+    --content-w: calc(var(--measure) + 2 * var(--gutter));
+  }
+
   .site-shell {
     display: grid;
-    grid-template-columns: 17rem minmax(0, calc(var(--measure) + 2 * var(--gutter)));
+    grid-template-columns: var(--rail-w) minmax(0, var(--content-w));
     justify-content: center;
     align-items: start;
-    column-gap: 2rem;
+    column-gap: var(--rail-gap);
     padding-inline: var(--gutter);
+  }
+
+  /* Footer text lines up with the content column. */
+  .site-footer .wrap {
+    max-width: calc(var(--rail-w) + var(--rail-gap) + var(--content-w) + 2 * var(--gutter));
+    padding-left: calc(2 * var(--gutter) + var(--rail-w) + var(--rail-gap));
   }
 
   .site-header {
@@ -498,7 +510,9 @@ blockquote p:last-child {
     padding: 0.35rem 0.9rem;
   }
 
+  /* No auto margins: in the grid they would shrink the column to its content. */
   .site-main {
+    margin-inline: 0;
     padding-top: 1.25rem;
   }
 
@@ -537,8 +551,15 @@ blockquote p:last-child {
 /* Wide screens: a wider content column so cards can sit two-up, while running
    text stays at a comfortable reading width. */
 @media (min-width: 80rem) {
-  .site-shell {
-    grid-template-columns: 17rem minmax(0, calc(58rem + 2 * var(--gutter)));
+  :root {
+    --content-w: calc(58rem + 2 * var(--gutter));
+  }
+
+  /* Faintly shaded margins so the space around the layout reads as framing. */
+  body {
+    --edge: color-mix(in srgb, var(--band) 65%, var(--bg));
+    background: linear-gradient(90deg, var(--edge), var(--bg) calc(50% - 44rem),
+      var(--bg) calc(50% + 44rem), var(--edge));
   }
 
   .site-main {
@@ -570,6 +591,12 @@ blockquote p:last-child {
 
   .oss-row:nth-last-child(2):nth-child(odd) {
     padding-bottom: 0;
+  }
+}
+
+@media (min-width: 100rem) {
+  html {
+    font-size: 106.25%;
   }
 }
 
@@ -971,6 +998,22 @@ blockquote p:last-child {
 
   .skills dd {
     margin-bottom: 0.6rem;
+  }
+}
+
+/* Wide screens: groups side by side, label above its items. */
+@media (min-width: 80rem) {
+  .skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 2.5rem;
+  }
+
+  .skills .skill {
+    display: block;
+  }
+
+  .skills dt {
+    margin-bottom: 0.15rem;
   }
 }
 

@@ -16,9 +16,8 @@
   stat_url: https://github.com/lowRISC/opentitan/pulls?q=is%3Apr+author%3Asilvestrst+is%3Amerged
   stat_label: 106 merged pull requests to OpenTitan on GitHub
   summary: >-
-    The open-source silicon root of trust. Device drivers for UART, PLIC, AES, the always-on
-    timer, Reset Manager, Pinmux and SRAM Controller; Mask ROM and ROM_EXT secure-boot code;
-    a Rust ROM_EXT image signer; a RISC-V PMP library; and chip-level SRAM and HMAC tests.
+    The open-source root of trust. Core contributor until 2022, across peripheral drivers,
+    secure boot, test infrastructure and chip bring-up.
   tech: ["C", "Rust", "RISC-V", "embedded", "security", "Root of Trust"]
 
 - project: Tock OS

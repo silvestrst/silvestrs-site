@@ -6,9 +6,9 @@ disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
   name = "Silvestrs Timofejevs"
-  tagline = "Senior Software Engineer · Backend · Blockchain · Embedded Systems · Security"
+  tagline = "silvestrs@timofejevs.dev · Backend · Blockchain · Embedded Systems · Security"
   description = "Silvestrs Timofejevs — senior software engineer working in Rust and C across digital-asset custody, embedded firmware, Linux graphics and safety-critical systems."
-  email = "silvestrs.timofejevs@gmail.com"
+  email = "silvestrs@timofejevs.dev"
   github = "silvestrst"
   location = "Hertfordshire, UK"
 

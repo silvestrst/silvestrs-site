@@ -60,17 +60,24 @@ GitHub Pages. Nothing under `public/` is committed.
 One-time setup in the GitHub repository: **Settings → Pages → Build and deployment → Source:
 GitHub Actions**.
 
-The site is served at https://silvestrst.github.io/silvestrs-site/ until a custom domain is set.
+The site is served at https://timofejevs.dev/ (www redirects to the apex). Without the custom
+domain it would be https://silvestrst.github.io/silvestrs-site/.
 
-### Custom domain (when `timofejevs.dev` is registered)
+### Custom domain
 
-1. At the registrar, add DNS records for GitHub Pages: `A` records for the apex (`timofejevs.dev`)
-   pointing at `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a
-   `CNAME` record for `www` pointing at `silvestrst.github.io`.
+How `timofejevs.dev` is set up, for reference:
+
+1. At the registrar: `A` records for the apex (`timofejevs.dev`) pointing at `185.199.108.153`,
+   `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a `CNAME` record for `www`
+   pointing at `silvestrst.github.io`.
 2. In the repository: **Settings → Pages → Custom domain**, enter `timofejevs.dev`, save, and turn
    on **Enforce HTTPS** once the certificate is issued.
-3. Add a file `static/CNAME` containing the single line `timofejevs.dev` and push, so the domain
-   survives future deployments.
+3. Re-run the deploy workflow once (Actions → Deploy Hugo site to GitHub Pages → Run workflow).
+   The workflow reads the site URL from GitHub Pages at build time, so a build made before the
+   domain was set still links its assets under `/silvestrs-site/` and renders unstyled.
 
-`baseURL` in `hugo.toml` is already `https://timofejevs.dev/`; the workflow overrides it with
-whatever URL GitHub Pages reports, so no template changes are needed when the domain goes live.
+No `static/CNAME` file is needed: with GitHub Actions deployments the domain lives in the
+repository settings and a CNAME file is ignored.
+
+`baseURL` in `hugo.toml` is `https://timofejevs.dev/`, which the local `hugo server` uses; the
+workflow overrides it with whatever URL GitHub Pages reports.

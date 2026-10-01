@@ -62,15 +62,15 @@ GitHub Actions**.
 
 The site is served at https://silvestrst.github.io/silvestrs-site/ until a custom domain is set.
 
-### Custom domain (when `silvestrs.site` is registered)
+### Custom domain (when `timofejevs.dev` is registered)
 
-1. At the registrar, add DNS records for GitHub Pages: `A` records for the apex (`silvestrs.site`)
+1. At the registrar, add DNS records for GitHub Pages: `A` records for the apex (`timofejevs.dev`)
    pointing at `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a
    `CNAME` record for `www` pointing at `silvestrst.github.io`.
-2. In the repository: **Settings → Pages → Custom domain**, enter `silvestrs.site`, save, and turn
+2. In the repository: **Settings → Pages → Custom domain**, enter `timofejevs.dev`, save, and turn
    on **Enforce HTTPS** once the certificate is issued.
-3. Add a file `static/CNAME` containing the single line `silvestrs.site` and push, so the domain
+3. Add a file `static/CNAME` containing the single line `timofejevs.dev` and push, so the domain
    survives future deployments.
 
-`baseURL` in `hugo.toml` is already `https://silvestrs.site/`; the workflow overrides it with
+`baseURL` in `hugo.toml` is already `https://timofejevs.dev/`; the workflow overrides it with
 whatever URL GitHub Pages reports, so no template changes are needed when the domain goes live.
